@@ -1,0 +1,28 @@
+#Create Bucket
+resource "aws_s3_bucket" "nexsecure-app" {
+  bucket = "nexsecure-app"
+
+  tags = {
+    Name        = "nexsecure-app"
+    Environment = "development"
+  }
+}
+
+#Enable versioning
+resource "aws_s3_bucket_versioning" "nexsecure-app" {
+  bucket = aws_s3_bucket.nexsecure-app.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+#Block public access to the S3 bucket created above
+resource "aws_s3_bucket_public_access_block" "nexsecure-app-accessblock" {
+  bucket = aws_s3_bucket.nexsecure-app.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
