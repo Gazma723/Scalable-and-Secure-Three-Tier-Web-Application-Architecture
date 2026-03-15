@@ -10,12 +10,10 @@ branches:
 - main
 
 jobs:
-
 terraform:
-
-```
 name: Terraform Deployment
 runs-on: ubuntu-latest
+
 
 defaults:
   run:
@@ -26,7 +24,6 @@ permissions:
   contents: read
 
 steps:
-
   - name: Checkout Repository
     uses: actions/checkout@v4
 
@@ -51,9 +48,8 @@ steps:
     run: terraform validate
 
   - name: Terraform Plan
-    run: terraform plan -input=false
+    run: terraform plan
 
   - name: Terraform Apply
-    if: github.ref == 'refs/heads/main'
-    run: terraform apply -auto-approve -input=false
-```
+    run: terraform apply -auto-approve
+
