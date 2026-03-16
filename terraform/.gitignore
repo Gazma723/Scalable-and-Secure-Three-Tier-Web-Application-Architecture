@@ -17,7 +17,6 @@ crash.log
 # Exclude any build or dependency directories
 /.hcl2
 /.terraformignore
-/terraform.*
 
 # Exclude editor-specific or system files
 *.swp
