@@ -45,5 +45,6 @@ variable "azs" {
 variable "github_repo" {
   description = "GitHub repository allowed to assume this role"
   type        = string
+  default = "Gazma723/Scalable-and-Secure-Three-Tier-Web-Application-Architecture"
 }
 
